@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.2.2] - 2026-11-09
+
+### Changed
+
+- This fork installs from its own `main` instead of the upstream release tag.
+
+### Fixed
+
+- A flowchart whose edges could not all be routed around its boxes no longer freezes Claude Code and unloads merman ("it crashed the hooks worker"). The edge search had no outer limit and ran forever; it now stops at the drawn area and the edge is drawn straight. A wide `flowchart LR` could trigger it at any terminal width, because merman retries a chart that is too wide as top-down.
+- A gantt task that runs past the dates JavaScript can hold, such as `99999999999w`, shows the usual "diagram failed to render" note instead of raising an error.
+
 ## [0.2.1] - 2026-10-29
 
 ### Changed
